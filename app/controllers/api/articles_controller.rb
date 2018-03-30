@@ -1,42 +1,43 @@
 module Api
   class ArticlesController < ApplicationController
+    load_and_authorize_resource class: "Article"
+
     def index
-      Ability.new
-      articles = Article.order('created_at DESC');
-      render json: {status: 'SUCCESS', message:'Loaded articles', data:articles},status: :ok
+      articles = Article.order('id DESC');
+      render json: { items: articles }
     end
 
     def show
       article = Article.find(params[:id])
-      render json: {status: 'SUCCESS', message:'Loaded article', data:article},status: :ok
+      render json: { item: article }
     end
 
     def create
       article = Article.new(article_params)
 
       if article.save
-        render json: {status: 'SUCCESS', message:'Saved article', data:article},status: :ok
+        render json: { item: article }, status: 201
       else
-        render json: {status: 'ERROR', message:'Article not saved', data:article.errors},status: :unprocessable_entity
+        render json: { errors: article.errors }, status: :unprocessable_entity
       end
     end
 
     def destroy
       article = Article.find(params[:id])
       article.destroy
-      render json: {status: 'SUCCESS', message:'Deleted article', data:article},status: :ok
+      render json: { item: item }, status: :ok
     end
 
     def update
       article = Article.find(params[:id])
       if article.update_attributes(article_params)
-        render json: {status: 'SUCCESS', message:'Updated article', data:article},status: :ok
+        render json: { item: article }
       else
-        render json: {status: 'ERROR', message:'Article not updated', data:article.errors},status: :unprocessable_entity
+        render json: { errors: article.errors },status: :unprocessable_entity
       end
     end
 
-    private
+  private
 
     def article_params
       params.permit(:title, :body)

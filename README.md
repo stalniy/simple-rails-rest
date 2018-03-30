@@ -1,20 +1,25 @@
-# SIMPLE RAILS 5 REST API
+# Rails 5 REST API with CanCan
 
-Example of a basic REST API to perform CRUD functions. Uses MySQL by default. Please add your own database and credentials
+This is an example of API based on Rails5 and CanCan which can be integrated with [CASL](https://github.com/stalniy/casl).
 
-## INSTALL DEPENDENCIES
-```bash
-$ bundle install
+## Installation
+
+If you don't have Ruby, install it (e.g., by using [rvm](https://rvm.io/) and when you finish, just run this:
+
+```sh
+gem install bundler
+bundle install
 ```
 
-## RUN MIGRATION
-```bash
-$ rails db:migrate
+Then configure database (it uses `sqlite3` by default) in `config/databse.yml` and run migrations and seeds:
+
+```sh
+rails db:migrate
+rails db:seed
 ```
 
-## RUN SERVER
+## Run Server
+
 ```bash
-$ rails s
+rails s
 ```
-
-

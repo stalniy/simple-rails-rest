@@ -67,6 +67,7 @@ GEM
       mini_portile2 (~> 2.2.0)
     puma (3.9.1)
     rack (2.0.3)
+    rack-cors (1.0.2)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.1.2)
@@ -122,6 +123,7 @@ DEPENDENCIES
   faker
   jwt
   puma (~> 3.7)
+  rack-cors
   rails (~> 5.1.2)
   sqlite3
   tzinfo-data

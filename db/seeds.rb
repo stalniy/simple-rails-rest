@@ -3,14 +3,14 @@ blogger = User.create(email: "member@freaksidea.com", role: "member", password:"
 
 2.times do
   Article.create(
-    author_id: admin.id
+    author_id: admin.id,
     title: Faker::Book.title,
     body: Faker::Lorem.sentence)
 end
 
 5.times do
   Article.create(
-    author_id: blogger.id
+    author_id: blogger.id,
     title: Faker::Book.title,
     body: Faker::Lorem.sentence)
 end

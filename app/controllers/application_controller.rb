@@ -16,7 +16,7 @@ class ApplicationController < ActionController::API
 private
   def token
     value = request.headers["Authorization"]
-    return unless value
+    return if value.blank?
     @token ||= JWT.decode(value, Rails.application.secrets.jwt_secret, true, { algorithm: 'HS256' }).first
   end
 end

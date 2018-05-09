@@ -21,7 +21,7 @@ module Api
 
     def destroy
       @article.destroy
-      render json: { item: item }, status: :ok
+      render json: { item: @article }, status: :ok
     end
 
     def update

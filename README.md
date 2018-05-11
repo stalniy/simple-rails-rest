@@ -18,6 +18,27 @@ rails db:migrate
 rails db:seed
 ```
 
+Seeds adds 2 users:
+* admin - admin@freaksidea.com / 123456
+* member - member@freaksidea.com / 123456
+
+## API
+
+To login send:
+
+```
+POST /api/session
+
+{
+  "email": "admin@freaksidea.com", # or member@freaksidea.com
+  "password": "123456"
+}
+```
+
+The response will give back JWT token and a list of rules which can be read by [CASL](https://github.com/stalniy/casl)
+
+Run `rails routes` to see the full list of routes. `articles` and `users` follows the general REST CRUD scheme.
+
 ## Run Server
 
 ```bash

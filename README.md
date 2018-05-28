@@ -1,6 +1,6 @@
 # Rails 5 REST API with CanCan
 
-This is an example of API based on Rails5 and CanCan which can be integrated with [CASL](https://github.com/stalniy/casl).
+This is an example of API based on Rails5 and CanCan which can be integrated with [CASL](https://github.com/stalniy/casl). Read [CASL and Cancan](https://medium.com/dailyjs/casl-and-cancan-permissions-sharing-between-ui-and-api-5f1fa8b4bec) for details 
 
 ## Installation
 

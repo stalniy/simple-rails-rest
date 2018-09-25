@@ -4,12 +4,9 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18'
-# gem 'mysql2'
 gem 'puma', '~> 3.7'
 gem 'cancancan'
 gem 'jwt'
@@ -22,7 +19,20 @@ end
 
 group :development do
   gem 'faker'
+  gem 'pry'
+  gem 'pry-nav'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'activeadmin'
+
+
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'turbolinks'
+gem 'web-console'
+# gem 'active_admin_role'

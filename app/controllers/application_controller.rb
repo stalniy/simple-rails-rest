@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
   include CanCan::ControllerAdditions
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -13,9 +13,22 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def authenticate_admin_user!
+    redirect_to login_path unless current_user.nil?
+  end
+
+  def destroy_admin_user_session_path
+    @current_user = nil
+    @token = nil
+  end
+
+  def access_denied(exception)
+    redirect_to '/login', alert: exception.message
+  end
+
 private
   def token
-    value = request.headers["Authorization"]
+    value = request.headers["Authorization"] || session[:token]
     return if value.blank?
     @token ||= JWT.decode(value, Rails.application.secrets.jwt_secret, true, { algorithm: 'HS256' }).first
   end

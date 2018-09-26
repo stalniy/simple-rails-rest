@@ -9,6 +9,5 @@ Rails.application.routes.draw do
     resources :articles
     resources :users
     post '/session', to: 'session#create'
-    resources :roles
   end
 end

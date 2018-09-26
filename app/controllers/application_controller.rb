@@ -17,6 +17,15 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless current_user.nil?
   end
 
+  def destroy_admin_user_session_path
+    @current_user = nil
+    @token = nil
+  end
+
+  def access_denied(exception)
+    redirect_to '/login', alert: exception.message
+  end
+
 private
   def token
     value = request.headers["Authorization"] || session[:token]

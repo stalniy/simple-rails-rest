@@ -22,4 +22,5 @@ ActiveAdmin.register User do
     column :updated_at
     actions
   end
+  permit_params :email, :password
 end

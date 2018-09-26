@@ -7,9 +7,9 @@ ActiveAdmin.register Article do
   # scope :drafts
 
   # Filterable attributes on the index screen
-  filter :email
+  # filter :email
   # filter :author, as: :select, collection: ->{ U.authors }
-  filter :role
+  # filter :role
   # filter :price
   filter :created_at
   filter :updated_at
@@ -18,9 +18,10 @@ ActiveAdmin.register Article do
   # Customize columns displayed on the index screen in the table
   index do
     column :title
-    column :author_id
+    # column :author_id
     column :created_at
     column :updated_at
     actions
   end
+  permit_params :title, :body
 end
